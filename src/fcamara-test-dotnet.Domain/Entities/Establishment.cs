@@ -49,12 +49,12 @@ public class Establishment
         CarSpots = carSpots;
     }
 
-    private bool IsValidName(string name)
+    private static bool IsValidName(string name)
     {
         return !string.IsNullOrWhiteSpace(name);
     }
 
-    private bool IsValidCnpj(string cnpj)
+    private static bool IsValidCnpj(string cnpj)
     {
         if (string.IsNullOrWhiteSpace(cnpj)) return false;
 
@@ -62,12 +62,12 @@ public class Establishment
         return regex.IsMatch(cnpj);
     }
 
-    private bool IsValidAddress(string address)
+    private static bool IsValidAddress(string address)
     {
         return !string.IsNullOrWhiteSpace(address);
     }
 
-    private bool IsValidPhone(string phone)
+    private static bool IsValidPhone(string phone)
     {
         if (string.IsNullOrWhiteSpace(phone)) return false;
 
@@ -75,12 +75,12 @@ public class Establishment
         return regex.IsMatch(phone);
     }
 
-    private bool IsValidMotorcycleSpots(int motorcycleSpots)
+    private static bool IsValidMotorcycleSpots(int motorcycleSpots)
     {
         return motorcycleSpots >= 0;
     }
 
-    private bool IsValidCarSpots(int carSpots)
+    private static bool IsValidCarSpots(int carSpots)
     {
         return carSpots >= 0;
     }
