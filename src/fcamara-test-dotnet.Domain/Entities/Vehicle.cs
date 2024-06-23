@@ -11,7 +11,7 @@ public class Vehicle
     public string Plate { get; private set; }
     public string Type { get; private set; }
     
-    public Vehicle(string brand, string model, string color, string plate, string type)
+    public Vehicle(string brand, string model, string color, string plate, string type, Guid id = default)
     {
         if (!IsBrandValid(brand))
         {
@@ -34,7 +34,7 @@ public class Vehicle
             throw new ValidationException("Tipo inválido.");
         }
 
-        Id = Guid.NewGuid();
+        Id = id;
         Brand = brand;
         Model = model;
         Color = color;
