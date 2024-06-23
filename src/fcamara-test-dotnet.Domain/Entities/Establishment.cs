@@ -6,14 +6,14 @@ namespace fcamara_test_dotnet.Domain.Entities;
 public class Establishment
 {
     public Guid Id { get; init; }
-    public string Name { get; set; }
-    public string Cnpj { get; set; }
-    public string Address { get; set; }
-    public string Phone { get; set; }
-    public int MotorcycleSpots { get; set; }
-    public int CarSpots { get; set; }
+    public string Name { get; private set; }
+    public string Cnpj { get; private set; }
+    public string Address { get; private set; }
+    public string Phone { get; private set; }
+    public int MotorcycleSpots { get; private set; }
+    public int CarSpots { get; private set; }
     
-    public Establishment(string name, string cnpj, string address, string phone, int motorcycleSpots, int carSpots)
+    public Establishment(string name, string cnpj, string address, string phone, int motorcycleSpots, int carSpots, Guid id = default)
     {
         if (!IsValidName(name))
         {
@@ -40,7 +40,7 @@ public class Establishment
             throw new ValidationException("Vagas de carro inválidas.");
         }
 
-        Id = Guid.NewGuid();
+        Id = id;
         Name = name;
         Cnpj = cnpj;
         Address = address;
