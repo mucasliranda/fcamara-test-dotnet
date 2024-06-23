@@ -10,12 +10,12 @@ public class AppDbContext: DbContext
 	public DbSet<VehicleEntry> VehiclesEntry { get; set; }
 	public DbSet<VehicleExit> VehiclesExit { get; set; }
 
-	// public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }
+	public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-		optionsBuilder.UseSqlite("Data Source=./Data/database.db");
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+	// 	optionsBuilder.UseSqlite("Data Source=./Data/database.db");
 
-        base.OnConfiguring(optionsBuilder);
-    }
+    //     base.OnConfiguring(optionsBuilder);
+    // }
 }
