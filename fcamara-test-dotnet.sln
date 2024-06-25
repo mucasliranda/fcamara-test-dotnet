@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fcamara-test-dotnet.Domain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fcamara-test-dotnet.Application.Tests", "tests\fcamara-test-dotnet.Application.Tests\fcamara-test-dotnet.Application.Tests.csproj", "{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{09058009-7B9D-4D20-9289-0CC891DD4695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fcamara-test-dotnet.Seeder", "src\fcamara-test-dotnet.Seeder\fcamara-test-dotnet.Seeder.csproj", "{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,9 +60,14 @@ Global
 		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FFA3C631-56A7-4447-A4E9-7AAE78A5CD5B} = {0204ED91-C829-4D7E-B553-7C0B9F99D4AA}
 		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED} = {0204ED91-C829-4D7E-B553-7C0B9F99D4AA}
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F} = {09058009-7B9D-4D20-9289-0CC891DD4695}
 	EndGlobalSection
 EndGlobal

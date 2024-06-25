@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\fcamara-test-dotnet.Domain\fcamara-test-dotnet.Domain.csproj" />
+  </ItemGroup>
+
+  
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+    <RootNamespace>fcamara_test_dotnet.Seeder</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
