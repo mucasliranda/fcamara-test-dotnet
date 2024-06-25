@@ -26,6 +26,16 @@ public class VehicleEntryRepository: IVehicleEntryRepository {
         return await _context.VehiclesEntry.Where(vehicleEntry => vehicleEntry.EstablishmentId == establishmentId).ToListAsync();
     }
 
+    public async Task<IEnumerable<VehicleEntry>> GetVehicleEntrysByEstablishmentIdAndVehicleType(Guid establishmentId, string vehicleType)
+    {
+        return await _context.VehiclesEntry
+            .Where(vehicleEntry => vehicleEntry.EstablishmentId == establishmentId)
+            .Join(_context.Vehicles, vehicleEntry => vehicleEntry.VehicleId, vehicle => vehicle.Id, (vehicleEntry, vehicle) => new { VehicleEntry = vehicleEntry, Vehicle = vehicle })
+            .Where(vehicleEntry => vehicleEntry.Vehicle.Type == vehicleType)
+            .Select(vehicleEntry => vehicleEntry.VehicleEntry)
+            .ToListAsync();
+    }
+
     public async Task<VehicleEntry> CreateVehicleEntry(VehicleEntry vehicleEntry)
     {
         var vehicle = await _context.Vehicles.FindAsync(vehicleEntry.VehicleId);
