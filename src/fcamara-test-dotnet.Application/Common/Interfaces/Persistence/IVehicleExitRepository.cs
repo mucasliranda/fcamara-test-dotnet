@@ -7,6 +7,7 @@ public interface IVehicleExitRepository
     Task<VehicleExit?> GetVehicleExitById(Guid id);
     Task<IEnumerable<VehicleExit>> GetVehicleExitsByVehicleId(Guid vehicleId);
     Task<IEnumerable<VehicleExit>> GetVehicleExitsByEstablishmentId(Guid establishmentId);
+    Task<IEnumerable<VehicleExit>> GetVehicleExitsByEstablishmentIdAndVehicleType(Guid establishmentId, string vehicleType);
     Task<VehicleExit> CreateVehicleExit(VehicleExit vehicleExit);
     Task DeleteVehicleExit(Guid id);
 }

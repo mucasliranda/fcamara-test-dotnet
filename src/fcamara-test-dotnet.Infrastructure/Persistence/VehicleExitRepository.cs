@@ -26,6 +26,16 @@ public class VehicleExitRepository: IVehicleExitRepository {
         return await _context.VehiclesExit.Where(vehicleExit => vehicleExit.EstablishmentId == establishmentId).ToListAsync();
     }
 
+    public async Task<IEnumerable<VehicleExit>> GetVehicleExitsByEstablishmentIdAndVehicleType(Guid establishmentId, string vehicleType)
+    {
+        return await _context.VehiclesExit
+            .Where(vehicleExit => vehicleExit.EstablishmentId == establishmentId)
+            .Join(_context.Vehicles, vehicleExit => vehicleExit.VehicleId, vehicle => vehicle.Id, (vehicleExit, vehicle) => new { VehicleExit = vehicleExit, Vehicle = vehicle })
+            .Where(vehicleExit => vehicleExit.Vehicle.Type == vehicleType)
+            .Select(vehicleExit => vehicleExit.VehicleExit)
+            .ToListAsync();
+    }
+
     public async Task<VehicleExit> CreateVehicleExit(VehicleExit vehicleExit)
     {
         var vehicle = await _context.Vehicles.FindAsync(vehicleExit.VehicleId);
