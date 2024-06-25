@@ -1,10 +1,12 @@
 using System.Reflection;
+using System.Text.Json.Nodes;
 using fcamara_test_dotnet.Application.Common.DTOs.Establishment;
 using fcamara_test_dotnet.Application.Common.DTOs.Vehicle;
 using fcamara_test_dotnet.Application.Common.DTOs.VehicleEntry;
 using fcamara_test_dotnet.Application.Common.Interfaces.Persistence;
 using fcamara_test_dotnet.Application.Common.Services;
 using fcamara_test_dotnet.Domain.Entities;
+using fcamara_test_dotnet.Domain.Exceptions;
 using fcamara_test_dotnet.Infrastructure.Data;
 using fcamara_test_dotnet.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +16,8 @@ public class VehicleEntryServiceTest
 {
     private readonly VehicleEntryService _vehicleEntryService;
     private readonly IVehicleEntryRepository _vehicleEntryRepository;
+
+    private readonly IVehicleExitRepository _vehicleExitRepository;
 
     private readonly VehicleService _vehicleService;
     private readonly IVehicleRepository _vehicleRepository;
@@ -32,15 +36,22 @@ public class VehicleEntryServiceTest
         optionsBuilder.UseInMemoryDatabase(methodName);
 
         AppDbContext ctx = new(optionsBuilder.Options);
-        
-        _vehicleEntryRepository = new VehicleEntryRepository(ctx); 
-        _vehicleEntryService = new VehicleEntryService(_vehicleEntryRepository);
 
         _vehicleRepository = new VehicleRepository(ctx);
         _vehicleService = new VehicleService(_vehicleRepository);
 
         _establishmentRepository = new EstablishmentRepository(ctx);
         _establishmentService = new EstablishmentService(_establishmentRepository);
+
+        _vehicleExitRepository = new VehicleExitRepository(ctx);
+
+        _vehicleEntryRepository = new VehicleEntryRepository(ctx); 
+        _vehicleEntryService = new VehicleEntryService(
+            _vehicleEntryRepository,
+            _vehicleExitRepository,
+            _establishmentRepository,
+            _vehicleRepository
+        );
 
         InitializeDatabase().Wait();
     }
@@ -53,8 +64,8 @@ public class VehicleEntryServiceTest
                 "12345678901234",
                 "Rua 1",
                 "27997307658",
-                10,
-                10
+                2,
+                2
             )
         );
 
@@ -98,7 +109,7 @@ public class VehicleEntryServiceTest
     [Fact]
     public async Task CannotCreateAVehicleEntryWithNotExistingVehicle()
     {
-        await Assert.ThrowsAsync<Exception>(() => _vehicleEntryService.CreateVehicleEntry(
+        await Assert.ThrowsAsync<NotFoundException>(() => _vehicleEntryService.CreateVehicleEntry(
             new CreateVehicleEntryDTO(
                 Guid.NewGuid(),
                 Establishment.Id,
@@ -110,7 +121,7 @@ public class VehicleEntryServiceTest
     [Fact]
     public async Task CannotCreateAVehicleEntryWithNotExistingEstablishment()
     {
-        await Assert.ThrowsAsync<Exception>(() => _vehicleEntryService.CreateVehicleEntry(
+        await Assert.ThrowsAsync<NotFoundException>(() => _vehicleEntryService.CreateVehicleEntry(
             new CreateVehicleEntryDTO(
                 Vehicle1.Id,
                 Guid.NewGuid(),
@@ -237,6 +248,34 @@ public class VehicleEntryServiceTest
 
         Assert.Null(await _vehicleEntryService.GetVehicleEntryById(
             new GetVehicleEntryByIdDTO(vehicleEntry.Id)
+        ));
+    }
+
+    [Fact]
+    public async Task ShouldThrowErrorWhenThereIsMoreVehicleEntriesThanSpots()
+    {
+        await _vehicleEntryService.CreateVehicleEntry(
+            new CreateVehicleEntryDTO(
+                Vehicle1.Id,
+                Establishment.Id,
+                DateTime.Now
+            )
+        );
+
+        await _vehicleEntryService.CreateVehicleEntry(
+            new CreateVehicleEntryDTO(
+                Vehicle1.Id,
+                Establishment.Id,
+                DateTime.Now
+            )
+        );
+
+        await Assert.ThrowsAsync<ValidationException>(() => _vehicleEntryService.CreateVehicleEntry(
+            new CreateVehicleEntryDTO(
+                Vehicle1.Id,
+                Establishment.Id,
+                DateTime.Now
+            )
         ));
     }
 }
