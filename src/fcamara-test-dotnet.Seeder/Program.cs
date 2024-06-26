@@ -8,6 +8,8 @@ public class Program
 {
     static async Task Main(string[] args)
     {
+        string url = "http://localhost:5126/api";
+
         var vehicleTypes = new string[] { "car", "motorcycle" };
 
         Random random = new Random();
@@ -26,7 +28,7 @@ public class Program
             using var client = new HttpClient();
             var json = JsonSerializer.Serialize(establishment);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("http://localhost:5126/api/Establishment", content);
+            var response = await client.PostAsync($"{url}/establishments", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -54,7 +56,7 @@ public class Program
 
                 json = JsonSerializer.Serialize(vehicle);
                 content = new StringContent(json, Encoding.UTF8, "application/json");
-                response = await client.PostAsync("http://localhost:5126/api/Vehicle", content);
+                response = await client.PostAsync($"{url}/vehicles", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -78,7 +80,7 @@ public class Program
 
                 json = JsonSerializer.Serialize(vehicleEntry);
                 content = new StringContent(json, Encoding.UTF8, "application/json");
-                response = await client.PostAsync("http://localhost:5126/api/VehicleEntry", content);
+                response = await client.PostAsync($"{url}/entry", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -99,7 +101,7 @@ public class Program
 
                 json = JsonSerializer.Serialize(vehicleExit);
                 content = new StringContent(json, Encoding.UTF8, "application/json");
-                response = await client.PostAsync("http://localhost:5126/api/VehicleExit", content);
+                response = await client.PostAsync($"{url}/exit", content);
 
                 if (response.IsSuccessStatusCode)
                 {
