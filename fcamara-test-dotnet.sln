@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src\fcamara-test-dotnet.Api", "src\fcamara-test-dotnet.Api\fcamara-test-dotnet.Api.csproj", "{89E0EE00-AFDA-43A2-B218-B9833E87091A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src\fcamara-test-dotnet.Contracts", "src\fcamara-test-dotnet.Contracts\fcamara-test-dotnet.Contracts.csproj", "{691B788C-D108-47A2-977C-A384142DDFD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src\fcamara-test-dotnet.Infrastructure", "src\fcamara-test-dotnet.Infrastructure\fcamara-test-dotnet.Infrastructure.csproj", "{B1A50783-BEAA-4497-B350-607C68B7BCCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src\fcamara-test-dotnet.Application", "src\fcamara-test-dotnet.Application\fcamara-test-dotnet.Application.csproj", "{1B950F05-D042-4E09-AA81-01FB6145B7AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src\fcamara-test-dotnet.Domain", "src\fcamara-test-dotnet.Domain\fcamara-test-dotnet.Domain.csproj", "{3F3FB09F-F35C-4F3D-AF14-BC63B2170444}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0204ED91-C829-4D7E-B553-7C0B9F99D4AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fcamara-test-dotnet.Domain.Tests", "tests\fcamara-test-dotnet.Domain.Tests\fcamara-test-dotnet.Domain.Tests.csproj", "{FFA3C631-56A7-4447-A4E9-7AAE78A5CD5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fcamara-test-dotnet.Application.Tests", "tests\fcamara-test-dotnet.Application.Tests\fcamara-test-dotnet.Application.Tests.csproj", "{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{09058009-7B9D-4D20-9289-0CC891DD4695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fcamara-test-dotnet.Seeder", "src\fcamara-test-dotnet.Seeder\fcamara-test-dotnet.Seeder.csproj", "{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89E0EE00-AFDA-43A2-B218-B9833E87091A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E0EE00-AFDA-43A2-B218-B9833E87091A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E0EE00-AFDA-43A2-B218-B9833E87091A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E0EE00-AFDA-43A2-B218-B9833E87091A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{691B788C-D108-47A2-977C-A384142DDFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691B788C-D108-47A2-977C-A384142DDFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691B788C-D108-47A2-977C-A384142DDFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691B788C-D108-47A2-977C-A384142DDFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A50783-BEAA-4497-B350-607C68B7BCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A50783-BEAA-4497-B350-607C68B7BCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A50783-BEAA-4497-B350-607C68B7BCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A50783-BEAA-4497-B350-607C68B7BCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B950F05-D042-4E09-AA81-01FB6145B7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B950F05-D042-4E09-AA81-01FB6145B7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B950F05-D042-4E09-AA81-01FB6145B7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B950F05-D042-4E09-AA81-01FB6145B7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3FB09F-F35C-4F3D-AF14-BC63B2170444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3FB09F-F35C-4F3D-AF14-BC63B2170444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3FB09F-F35C-4F3D-AF14-BC63B2170444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3FB09F-F35C-4F3D-AF14-BC63B2170444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA3C631-56A7-4447-A4E9-7AAE78A5CD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA3C631-56A7-4447-A4E9-7AAE78A5CD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA3C631-56A7-4447-A4E9-7AAE78A5CD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA3C631-56A7-4447-A4E9-7AAE78A5CD5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FFA3C631-56A7-4447-A4E9-7AAE78A5CD5B} = {0204ED91-C829-4D7E-B553-7C0B9F99D4AA}
+		{83B72B0B-DE22-4B64-831B-8C5032F8D4ED} = {0204ED91-C829-4D7E-B553-7C0B9F99D4AA}
+		{B42FB29E-9FF4-47DF-9533-0BA0EBEBBB6F} = {09058009-7B9D-4D20-9289-0CC891DD4695}
+	EndGlobalSection
+EndGlobal
