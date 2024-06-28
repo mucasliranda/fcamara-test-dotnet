@@ -1,58 +1,65 @@
-### FCamara 🚀
-*"Somos um ecossistema de tecnologia e inovação que potencializa o futuro de negócios, integrando visão estratégica com execução inteligente, lado a lado com nossos clientes, para proporcionar experiências transformadoras."*
+# FCamara Estacionamento API
 
-Conheça a [FCamara](https://fcamara.com/conheca-a-fcamara/)
+Este projeto é parte do teste técnico encontrado no GitHub da empresa FCamara, ainda não tive o prazer de participar do processo seletivo interno deles e aproveitei o desafio para aumentar meu conhecimento e enriquecer o portfólio.
 
-## Teste para vaga de Desenvolvimento Back-end .NET
-Criar uma API REST para gerenciar um estacionamento de carros e motos.
+### Tecnologias Utilizadas
 
-## Funcionalidades 🛠️
+- **.NET 8**: A aplicação foi desenvolvida usando .NET na versão 8, aproveitando as funcionalidades e melhorias dessa versão.
+- **Entity Framework Core**: Utilizado para persistência de dados no banco, facilitando operações de CRUD e garantindo a integridade dos dados.
+- **Swagger**: Implementado para documentar a API de forma interativa, permitindo testar os endpoints diretamente pelo navegador.
+- **Docker**: Suporte a Docker para facilitar o deployment e execução da aplicação em diferentes ambientes.
+- **SQLite**: Utilizado para execução local da aplicação, facilitando testes e desenvolvimento sem necessidade de configurações adicionais.
+- **PostgreSQL**: Utilizado quando a aplicação é executada em containers Docker, oferecendo uma solução robusta para ambientes de produção.
+- **xUnit**: Utilizado para implementar testes unitários, garantindo a qualidade e integridade do código.
 
-   - **Estabelecimento:** CRUD;
+### Executando a Aplicação Localmente
 
-      Criar um cadastro da empresa com os seguintes campos:
-      - Nome;
-      - CNPJ;
-      - Endereço;
-      - Telefone;
-      - Quantidade de vagas para motos;
-      - Quantidade de vagas para carros.
-      
-      **Todos** os campos são de preenchimento obrigatório.
+Para executar a aplicação localmente, utilizando SQLite:
 
-   - **Veículos:** CRUD;
+1. Clone o repositório:
 
-      Criar um cadastro de veículos com os seguintes campos:
-      - Marca;
-      - Modelo;
-      - Cor;
-      - Placa;
-      - Tipo.
+```bash
+git clone https://github.com/mucasliranda/fcamara-test-dotnet.git
+```
 
-      **Todos** os campos são de preenchimento obrigatório.
+2. Navegue até o diretório do projeto da API:
 
-   - **Controle de entrada e saída de veículos.**
+```bash
+cd fcamara-test-dotnet/src/fcamara-test-dotnet.Api
+```
 
-## Requisitos 💻
-   - A aplicação deverá ser desenvolvida usando .NET a partir da versão 5+;
-   - Modelagem de dados pode ser no banco de dados de sua preferência, podendo ser um banco relacional ou não relacional (mongodb, SQL Server, PostgreSQL, MySQL, etc);
-   - Persistência de dados no banco deverá ser feita utilizando o Entity Framework Core;
-   - O retorno da API deverá ser em formato JSON;
-   - Utilizar as requisições GET, POST, PUT ou DELETE, conforme a melhor prática;   
-   - Criar o README do projeto descrevendo as tecnologias utilizadas, chamadas dos serviços e configurações necessário para executar a aplicação.
-   
-## Pontos Extras ⭐
-   - Desenvolvimento baseado em TDD;
-   - Práticas de modelagem de projeto;
-   - Criar e configurar o Swagger da API de acordo com as melhores práticas;
-   - Criar uma API para extração de relatórios da aplicação com as seguintes informações:
-      - Sumário da quantidade de entrada e saída;
-      - Sumário da quantidade de entrada e saída de veículos por hora;
-   - Criar uma solução de autenticação;
-   - Publicação da aplicação em algum servidor.
+3. Execute a aplicação (garanta que você tenha o .NET SDK instalado):
 
-## Submissão do teste 📝
-Crie um fork do teste para acompanharmos o seu desenvolvimento através dos seus commits.
+```bash
+dotnet run
+```
 
-## Obrigado!
-Agradecemos sua participação no teste. Boa sorte! 😄
+A aplicação estará disponível em http://localhost:5126 ou na porta especificada no arquivo `appsettings.json`.
+
+### Executando a Aplicação com Docker (PostgreSQL)
+
+Para executar a aplicação com Docker, utilizando PostgreSQL:
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/mucasliranda/fcamara-test-dotnet.git
+```
+
+2. Navegue até o diretório do projeto:
+
+```bash
+cd fcamara-test-dotnet
+```
+
+3. Execute o container Docker:
+
+```bash
+docker compose up --build
+```
+
+A aplicação estará disponível em http://localhost:5126 ou na porta especificada no arquivo `docker-compose.yml`.
+
+### Documentação da API
+
+A documentação da API está disponível em http://localhost:5126/swagger/index.html.
